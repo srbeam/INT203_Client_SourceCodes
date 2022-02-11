@@ -12,10 +12,7 @@ const course = {
 }
 </script>
 <template>
-<div>
-  <div>
-  <h1 class = "font-bold text-slate-700">Food List</h1>
-  </div> 
+  <h1>Food List</h1>
   <!-- v-for-array -->
   <ul>
     <li v-for="(food, index) in foods" :key="index">{{ food }}</li>
@@ -35,7 +32,6 @@ const course = {
       {{ propValue }}
     </li>
   </ul>
-</div>
 </template>
 
 <style></style>
