@@ -1,41 +1,55 @@
 <script setup>
-const foods = ['steak', 'salad', 'tomyum', 'fried rice']
-const students = [
-  { stdId: 1234, stdName: 'Hataiwan Mekvee' },
-  { stdId: 1235, stdName: 'Sarin Weerakun' },
-  { stdId: 1236, stdName: 'Supichaya Muennuch' }
+const accounts = [
+  {
+    name: 'salary',
+    amount: 10000
+  },
+  {
+    name: 'rent',
+    amount: -2500
+  },
+  {
+    name: 'parking fee',
+    amount: 0
+  },
+  {
+    name: 'car fuel',
+    amount: -600
+  },
+  {
+    name: 'commission',
+    amount: 5500
+  }
 ]
-const course = {
-  title: 'INT203 Client II',
-  credit: 3,
-  class: 'lecture & lab'
-}
 </script>
-<template>
-<div>
-  <div>
-  <h1 class = "font-bold text-slate-700">Food List</h1>
-  </div> 
-  <!-- v-for-array -->
-  <ul>
-    <li v-for="(food, index) in foods" :key="index">{{ food }}</li>
-  </ul>
 
-<!-- v-for-array-object -->
+<template>
   <ul>
-    <li v-for="student in students" :key="students.stdId">
-      {{ student.stdId }}:
-      {{ student.stdName }}
+    <li v-for="account in accounts">
+      <p v-if="account.amount !== 0">
+        <span> {{ account.name }} </span>:
+        <span
+          :style="
+            account.amount > 0
+              ? 'background-color:green'
+              : 'background-color:red'
+          "
+        >
+          {{ account.amount }}</span
+        >
+      </p>
     </li>
   </ul>
-<!-- v-for-object -->
-  <ul>
-    <li v-for="(propValue, propKey, index) in course" :key="index">
-      #{{ index }} -{{ propKey }}:
-      {{ propValue }}
-    </li>
-  </ul>
-</div>
+  <p>
+    Net Total:
+    {{ accounts.reduce((total, account) => total + account.amount, 0) }}
+  </p>
+  <!-- #round 1 (0, account#1) :   0+10000 
+      #round 2 (10000, account#2): 10000+(-2500)
+      #round 3(7500, account#3):....
+  -->
 </template>
 
-<style></style>
+<style >
+
+</style>
