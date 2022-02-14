@@ -6,9 +6,9 @@ const favorColor = ref('')
 const agree = ref(false)
 const jobs = ref([])
 </script>
-
-<template>
-  <div>
+ 
+ <template>
+ <div>
       suggestion
       <textarea
         v-model="suggestion"
@@ -24,7 +24,6 @@ const jobs = ref([])
       <label>Red</label>
       <input type="radio" value="GREEN" v-model="favorColor" />
       <label>Green</label>
-
       <p>{{ favorColor }}</p>
     </div>
 
@@ -44,20 +43,13 @@ const jobs = ref([])
       <p>{{ jobs }}</p>
     </div>
 
-<div>
-
+    <div>
       <select v-model="food">
-
         <option value="PIZZA">Pizza</option>
-
         <option value="SOUP">Soup</option>
-
         <option value="PASTA">Pasta</option>
-
       </select>
-
       <p>{{ food }}</p>
-
     </div>
 
     <div>
@@ -68,6 +60,7 @@ const jobs = ref([])
       </select>
       <p>{{ activities }}</p>
     </div>
-</template>
 
-<style></style>
+ </template>
+
+ <style></style>
